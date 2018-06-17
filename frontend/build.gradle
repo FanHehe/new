@@ -1,0 +1,20 @@
+project(':frontend') {
+
+    apply plugin: 'com.moowork.node'
+
+    task cnpmInstall(type: NpmTask) {
+        group = 'node'
+        args = ['install', '--registry=https://registry.npm.taobao.org']
+    }
+
+    task runBuild(type: NpmTask, dependsOn: cnpmInstall) {
+        group = 'node'
+        args = ['run', 'build']
+    }
+    jar.dependsOn runBuild 
+
+    task runDev(type: NpmTask, dependsOn: cnpmInstall) {
+        group = 'node'
+        args = ['run', 'dev']
+    }
+}
