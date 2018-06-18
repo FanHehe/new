@@ -10,9 +10,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="password" column="password" />
     </resultMap>
 
-    <select id="login" parameterType="User" resultMap="UserResult">
-        select * from
-        t_user where userName=#{userName} and password=#{password}
-    </select>
-
 </mapper>
