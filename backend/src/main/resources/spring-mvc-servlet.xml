@@ -16,7 +16,12 @@
     <aop:aspectj-autoproxy />
 
     <mvc:default-servlet-handler />
-    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <!-- 静态资源处理方式 -->
     <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
@@ -27,5 +32,6 @@
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".html"/>
     </bean>
+
 </beans>
 

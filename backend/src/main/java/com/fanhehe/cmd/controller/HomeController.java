@@ -8,15 +8,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.*;
+import com.fanhehe.cmd.entity.User;
 
-import com.mysql.jdbc.*;
+import java.util.*;
+import com.fanhehe.cmd.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class HomeController {
 
-    public HomeController () {}
+    @Autowired
+    UserDao userDao;
 
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -25,14 +30,21 @@ public class HomeController {
 
         logger.info("Welcome home! The client locale.");
 
-        System.out.print(1);
-
         return "home";
     }
 
-    @RequestMapping(value = "/req", method = RequestMethod.GET)
-    public String req (HttpServletRequest request, HttpServletResponse response) {
-        return "home";
+    @ResponseBody
+    @RequestMapping(value = "json", method = RequestMethod.GET)
+    public Map<String, Object> json () {
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("new", new User());
+        return map;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "user", method = RequestMethod.GET)
+    public User mysql () {
+       return userDao.getUserById(1);
     }
 
 }
