@@ -3,19 +3,18 @@ package com.fanhehe.cmd.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.stereotype.Controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.http.*;
-import com.fanhehe.cmd.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.*;
 import com.fanhehe.cmd.dao.UserDao;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fanhehe.cmd.entity.User;
+
 
 @Controller
 public class HomeController {
@@ -28,7 +27,7 @@ public class HomeController {
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String home() {
 
-        logger.info("Welcome home! The client locale.");
+//        logger.info("Welcome home! The client locale.");
 
         return "home";
     }
@@ -44,7 +43,8 @@ public class HomeController {
     @ResponseBody
     @RequestMapping(value = "user", method = RequestMethod.GET)
     public User mysql () {
-       return userDao.getUserById(1);
+        logger.info("Welcome home! The client locale.");
+        return userDao.getUserById(1);
     }
 
 }
