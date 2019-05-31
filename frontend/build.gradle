@@ -9,9 +9,9 @@ project(':frontend') {
 
     task runBuild(type: NpmTask, dependsOn: cnpmInstall) {
         group = 'node'
-        args = ['run', 'build']
+        args = ['run', 'webpack']
     }
-    jar.dependsOn runBuild 
+    jar.dependsOn runBuild
 
     task runDev(type: NpmTask, dependsOn: cnpmInstall) {
         group = 'node'

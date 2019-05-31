@@ -8,7 +8,4 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <package name="com.fanhehe.cmd.entity" />
     </typeAliases>
 
-    <!--<mappers>-->
-        <!--<mapper resource="mappers/UserMapper.xml" />-->
-    <!--</mappers>-->
 </configuration>

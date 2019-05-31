@@ -7,5 +7,5 @@ import org.springframework.stereotype.Component;
 @Component
 public interface UserDao {
     @Select("select * from user where id = #{id}")
-    User getUserById (int id);
+    User getUserById (long id);
 }

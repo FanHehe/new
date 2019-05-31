@@ -1,9 +1,9 @@
 package com.fanhehe.cmd.entity;
 
 public class User {
-    private long id = 0;
-    private String userName = "fanhehe";
-    private transient String password = "not noll";
+    private long id;
+    private String userName = "";
+    private transient String password = "";
 
     public User () {}
 
