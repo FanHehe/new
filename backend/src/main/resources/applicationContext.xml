@@ -68,12 +68,6 @@
         </tx:attributes>
     </tx:advice>
 
-    <!-- 配置事务切面 -->
-    <aop:config>
-        <aop:pointcut id="serviceOperation" expression="execution(* com.fanhehe.cmd.service.*.*(..))" />
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />
-    </aop:config>
-
     <beans profile="dev">
         <context:property-placeholder location="classpath:env/dev/*.properties"/>
     </beans>

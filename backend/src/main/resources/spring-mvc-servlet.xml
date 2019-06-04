@@ -16,6 +16,8 @@
 
     <aop:aspectj-autoproxy />
 
+    <bean class="com.fanhehe.cmd.service.aspect.PictureServiceAspect" />
+
     <mvc:default-servlet-handler />
 
     <mvc:annotation-driven>
