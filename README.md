@@ -1,4 +1,4 @@
-# SpringProject 
+# SpringProject
 
 ## 说明
 
@@ -6,6 +6,7 @@
 2. 日志方面采用logback + slf4j 记录日志
 3. 项目根路径分为前后端项目，统一使用gradle进行项目构建
 4. 使用Gretty插件，支持开发阶段热重启。
+5. 使用Dubbo作为SOA，进行SRPC通信工具
 
 ## 要求
 
@@ -26,4 +27,5 @@
 
 ## Change Logs
 
+- 1.1.0 支持Dubbo
 - 1.0.0 init
