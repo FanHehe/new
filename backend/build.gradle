@@ -43,6 +43,12 @@ dependencies {
     compile ("org.springframework:spring-jdbc:$springVersion")
     compile ("org.springframework:spring-aop:$springVersion")
     compile ("org.springframework:spring-aspects:$springVersion")
+    compile ("org.apache.dubbo:dubbo:2.7.1")
+    compile ("io.netty:netty:3.10.6.Final")
+    compile ("io.netty:netty-all:4.1.36.Final")
+    implementation 'org.apache.curator:curator-framework:2.13.0'
+    implementation 'org.apache.curator:curator-recipes:2.13.0'
+    implementation 'org.apache.zookeeper:zookeeper:3.4.13'
 
     testCompile ("junit:junit:4.12")
 }

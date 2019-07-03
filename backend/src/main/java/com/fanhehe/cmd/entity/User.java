@@ -1,6 +1,10 @@
 package com.fanhehe.cmd.entity;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class User {
+
     private long id;
     private String userName = "";
     private transient String password = "";

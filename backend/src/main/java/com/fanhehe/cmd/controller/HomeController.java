@@ -15,7 +15,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import java.util.*;
 import com.fanhehe.cmd.dao.UserDao;
 import com.fanhehe.cmd.entity.User;
+import com.fanhehe.cmd.service.UserService;
 import com.fanhehe.cmd.service.HomeService;
+import com.alibaba.dubbo.config.annotation.Reference;
 
 @Controller
 public class HomeController {
@@ -26,6 +28,9 @@ public class HomeController {
     @Autowired
     @Qualifier("Base")
     private HomeService homeService;
+
+    @Reference
+    private UserService userService;
 
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -61,7 +66,7 @@ public class HomeController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "user", method = RequestMethod.GET)
+    @RequestMapping(value = "model", method = RequestMethod.GET)
     public User user (
         @RequestParam(name = "user_id") int userId,
         @RequestParam(name = "password") String password
@@ -69,4 +74,15 @@ public class HomeController {
         logger.info("Welcome home! The client locale." + password);
         return userDao.getUserById(userId);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "user", method = RequestMethod.GET)
+    public User user (
+        @RequestParam(name = "id") long id,
+        @RequestParam(name = "name") String name
+    ) {
+        logger.info("Welcome home! The client locale." + name);
+        return userService.getUserInfoBy(id);
+    }
+
 }
